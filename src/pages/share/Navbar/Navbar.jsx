@@ -1,12 +1,12 @@
 import React from "react";
-import logo from "../../../assets/logo7.png";
+import logo from "../../../assets/logo/logo.png";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <div>
       <div className="navbar bg-base-200 flex items-center justify-around flex-wrap">
-        <div className="">
+        <div>
           <img
             className="rounded-full w-11/12 mx-auto md:w-full"
             src={logo}
