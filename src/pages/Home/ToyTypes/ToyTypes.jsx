@@ -39,7 +39,7 @@ const ToyTypes = () => {
           className="justify-self-center border-4 rounded md:mx-2 md:mt-0 mt-3 bg-base-200"
         >
           <img src={img2} alt="image" />
-          <h1 className="text-2xl pb-2">Brain Puzzles</h1>
+          <h1 className="text-2xl pb-2">Logic Puzzles</h1>
         </div>
         <div
           data-aos="fade-zoom-in"

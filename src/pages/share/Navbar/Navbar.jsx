@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import logo from "../../../assets/logo/logo.png";
-import { Link } from "react-router-dom";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
+import ActiveNav from "./ActiveNav";
 
 const Navbar = () => {
   const { user, Logout } = useContext(AuthContext);
@@ -25,31 +25,31 @@ const Navbar = () => {
           {/* <ul className="menu menu-horizontal"> */}
           <ul className="flex items-center justify-around flex-wrap py-5 md:py-0">
             <li className="mx-4 rounded">
-              <Link to="/" className="rounded">
+              <ActiveNav to="/" className="rounded">
                 Home
-              </Link>
+              </ActiveNav>
             </li>
             <li className="mx-4 rounded">
-              <Link to="/allToys" className="rounded">
+              <ActiveNav to="/allToys" className="rounded">
                 All Toys
-              </Link>
+              </ActiveNav>
             </li>
             <li className="mx-4 rounded">
-              <Link to="/blog" className="rounded">
+              <ActiveNav to="/blog" className="rounded">
                 Blog
-              </Link>
+              </ActiveNav>
             </li>
             {user?.email ? (
               <>
                 <li className="mx-4 rounded">
-                  <Link to="/myToys" className="rounded">
+                  <ActiveNav to="/myToys" className="rounded">
                     My Toys
-                  </Link>
+                  </ActiveNav>
                 </li>
                 <li className="mx-4 rounded">
-                  <Link to="/addToys" className="rounded">
+                  <ActiveNav to="/addToy" className="rounded">
                     Add Toys
-                  </Link>
+                  </ActiveNav>
                 </li>
                 <li className="mx-4 rounded">
                   <div
@@ -72,9 +72,9 @@ const Navbar = () => {
             ) : (
               <>
                 <li className="mx-4 rounded">
-                  <Link to="/login" className="rounded">
+                  <ActiveNav to="/login" className="rounded">
                     Login
-                  </Link>
+                  </ActiveNav>
                 </li>
               </>
             )}
