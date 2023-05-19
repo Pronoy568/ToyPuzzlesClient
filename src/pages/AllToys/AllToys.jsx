@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import AllToyDataShow from "./AllToyDataShow";
 
 const AllToys = () => {
   const [allToys, setAllToys] = useState([]);
@@ -8,7 +9,7 @@ const AllToys = () => {
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        const limitToy = ToySplit(data, 10)[0];
+        const limitToy = ToySplit(data, 20)[0];
         setAllToys(limitToy);
       });
   }, [url]);
@@ -25,51 +26,24 @@ const AllToys = () => {
 
   return (
     <div className="py-5 w-10/12 mx-auto">
-      <h1 className="text-center text-5xl font-bold my-10">
-        Here All Toys : {allToys.length}
-      </h1>
+      <h1 className="text-center text-5xl font-bold my-10">Here All Toys</h1>
       <div className="overflow-x-auto w-full">
-        <table className="table w-full">
+        <table className="table w-full text-center">
           {/* head */}
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Job</th>
-              <th>Favorite Color</th>
-              <th></th>
+              <th>ToyName</th>
+              <th>Price</th>
+              <th>Category</th>
+              <th>Quantity</th>
+              <th>Details Info.</th>
             </tr>
           </thead>
           <tbody>
-            {/* row 1 */}
-            <tr>
-              <td>
-                <div className="flex items-center space-x-3">
-                  <div className="avatar">
-                    <div className="mask mask-squircle w-12 h-12">
-                      <img
-                        src="/tailwind-css-component-profile-2@56w.png"
-                        alt="Avatar Tailwind CSS Component"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <div className="font-bold">Hart Hagerty</div>
-                    <div className="text-sm opacity-50">United States</div>
-                  </div>
-                </div>
-              </td>
-              <td>
-                Zemlak, Daniel and Leannon
-                <br />
-                <span className="badge badge-ghost badge-sm">
-                  Desktop Support Technician
-                </span>
-              </td>
-              <td>Purple</td>
-              <th>
-                <button className="btn btn-ghost btn-xs">details</button>
-              </th>
-            </tr>
+            {/* row */}
+            {allToys.map((allToy) => (
+              <AllToyDataShow key={allToy._id} allToy={allToy}></AllToyDataShow>
+            ))}
           </tbody>
         </table>
       </div>
