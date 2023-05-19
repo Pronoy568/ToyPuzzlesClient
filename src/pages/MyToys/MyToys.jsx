@@ -49,25 +49,6 @@ const MyToys = () => {
         });
       }
     });
-
-    // if (proceed) {
-    //   fetch(`http://localhost:3000/toy/${id}`, {
-    //     method: "DELETE",
-    //   })
-    //     .then((res) => res.json())
-    //     .then((data) => {
-    //       if (data.deletedCount > 0) {
-    //         Swal.fire({
-    //           title: "Delete",
-    //           text: "Are You Sure you want to delete",
-    //           icon: "question",
-    //           confirmButtonText: "Done",
-    //         });
-    //         const remaining = myToys.filter((myToy) => myToy._id !== id);
-    //         setMyToys(remaining);
-    //       }
-    //     });
-    // }
   };
 
   return (
