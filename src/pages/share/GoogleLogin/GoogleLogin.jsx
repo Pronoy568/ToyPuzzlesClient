@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import { useLocation, useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 
 const GoogleLogin = () => {
   const { googleSignIn } = useContext(AuthContext);
@@ -25,7 +27,7 @@ const GoogleLogin = () => {
           onClick={handleGoogleSignIn}
           className="btn btn-circle btn-outline"
         >
-          G
+          <FontAwesomeIcon icon={faGoogle} size="lg" />
         </button>
       </div>
     </div>

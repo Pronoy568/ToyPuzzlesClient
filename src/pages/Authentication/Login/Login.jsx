@@ -4,12 +4,15 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import GoogleLogin from "../../share/GoogleLogin/GoogleLogin";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
 
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -34,6 +37,10 @@ const Login = () => {
         setErrorMessage(err.message);
         setSuccessMessage("");
       });
+  };
+
+  const handleToggle = () => {
+    setShowPassword(!showPassword);
   };
 
   return (
@@ -64,12 +71,19 @@ const Login = () => {
                   <span className="label-text">Password</span>
                 </label>
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   placeholder="password"
                   className="input input-bordered"
                   name="password"
                   required
                 />
+                <p
+                  className="relative -top-9 left-72 text-gray-400"
+                  checked={showPassword}
+                  onClick={handleToggle}
+                >
+                  <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+                </p>
                 <p className="text-center my-3">
                   New to ToyPuzzle ?{" "}
                   <Link className="text-orange-600 font-bold" to="/register">

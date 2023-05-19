@@ -3,11 +3,14 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import GoogleLogin from "../../share/GoogleLogin/GoogleLogin";
 import img from "../../../assets/mixed/register.jpg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 const Register = () => {
   const { createUser, Logout, profileUpdate } = useContext(AuthContext);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const from = "/login";
@@ -51,6 +54,10 @@ const Register = () => {
       });
   };
 
+  const handleToggle = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <div className="hero min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">
@@ -90,12 +97,19 @@ const Register = () => {
                   <span className="label-text">Confirm Password</span>
                 </label>
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   placeholder="password"
                   className="input input-bordered"
                   name="password"
                   required
                 />
+                <p
+                  className="relative -top-9 left-72 text-gray-400"
+                  checked={showPassword}
+                  onClick={handleToggle}
+                >
+                  <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+                </p>
               </div>
               <div className="form-control">
                 <label className="label">
