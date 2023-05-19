@@ -75,6 +75,7 @@ const AddToy = () => {
                 name="sellerName"
                 defaultValue={user?.displayName}
                 className="input input-bordered w-full"
+                required
               />
             </label>
           </div>
@@ -89,6 +90,7 @@ const AddToy = () => {
                 name="sellerEmail"
                 defaultValue={user?.email}
                 className="input input-bordered w-full"
+                required
               />
             </label>
           </div>
@@ -105,6 +107,7 @@ const AddToy = () => {
                 placeholder="Toy Name"
                 name="ToyName"
                 className="input input-bordered w-full"
+                required
               />
             </label>
           </div>
@@ -118,6 +121,7 @@ const AddToy = () => {
                 placeholder="Price"
                 name="price"
                 className="input input-bordered w-full"
+                required
               />
             </label>
           </div>
@@ -134,6 +138,7 @@ const AddToy = () => {
                 placeholder="Category"
                 name="category"
                 className="input input-bordered w-full"
+                required
               />
             </label>
           </div>
@@ -147,6 +152,7 @@ const AddToy = () => {
                 placeholder="Quantity"
                 name="quantity"
                 className="input input-bordered w-full"
+                required
               />
             </label>
           </div>
@@ -163,6 +169,7 @@ const AddToy = () => {
                 placeholder="Rating"
                 name="rating"
                 className="input input-bordered w-full"
+                required
               />
             </label>
           </div>
@@ -176,12 +183,12 @@ const AddToy = () => {
                 placeholder="Available"
                 name="available"
                 className="input input-bordered w-full"
+                required
               />
             </label>
           </div>
         </div>
-        {/* Form Photo URL */}
-        {/* Rating and Available */}
+        {/* Form Image URL & Details */}
         <div className="md:flex mb-6">
           <div className="form-control md:w-1/2">
             <label className="label">
@@ -193,6 +200,7 @@ const AddToy = () => {
                 placeholder="Image URL"
                 name="image"
                 className="input input-bordered w-full"
+                required
               />
             </label>
           </div>
@@ -206,6 +214,7 @@ const AddToy = () => {
                 placeholder="Details Description"
                 name="details"
                 className="input input-bordered w-full"
+                required
               />
             </label>
           </div>
