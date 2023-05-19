@@ -1,9 +1,11 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const UpdateToy = () => {
   const toyData = useLoaderData();
+  const navigate = useNavigate();
+  const from = "/myToys";
 
   const {
     _id,
@@ -66,6 +68,7 @@ const UpdateToy = () => {
             icon: "success",
             confirmButtonText: "Done",
           });
+          navigate(from, { replace: true });
         }
       });
   };

@@ -1,9 +1,13 @@
 import React, { useContext } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 const AddToy = () => {
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const from = "/myToys";
+
   const handleAddToys = (event) => {
     event.preventDefault();
 
@@ -53,6 +57,7 @@ const AddToy = () => {
           });
         }
         form.reset();
+        navigate(from, { replace: true });
       });
   };
 

@@ -5,7 +5,7 @@ import "aos/dist/aos.css";
 
 const ThreeD = () => {
   useEffect(() => {
-    Aos.init({ duration: 3000 });
+    Aos.init({ duration: 2000 });
   }, []);
   return (
     <div className="pb-10 w-10/12 mx-auto">

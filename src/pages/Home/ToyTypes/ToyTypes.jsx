@@ -9,7 +9,7 @@ import "aos/dist/aos.css";
 
 const ToyTypes = () => {
   useEffect(() => {
-    Aos.init({ duration: 3000 });
+    Aos.init({ duration: 2000 });
   }, []);
   return (
     <div className="py-10 w-10/12 mx-auto">

@@ -1,8 +1,22 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AllToyDataShow = ({ allToy }) => {
+  const { user } = useContext(AuthContext);
   const { _id, ToyName, price, category, quantity, image } = allToy;
+  const navigate = useNavigate();
+
+  const from = "/login";
+
+  const messageLogin = () => {
+    toast(`you have to log in first to view details`);
+    setTimeout(() => {
+      navigate(from, { replace: true });
+    }, 3000);
+  };
 
   return (
     <tr className="border-4 border-gray-200 border-double">
@@ -22,9 +36,17 @@ const AllToyDataShow = ({ allToy }) => {
       <td>{category}</td>
       <td>{quantity}</td>
       <td>
-        <button className="btn btn-active btn-ghost">
-          <Link to={`/toy/${_id}`}>View details</Link>
-        </button>
+        {user ? (
+          <button className="btn btn-active btn-ghost">
+            <Link to={`/toy/${_id}`}>View details</Link>
+          </button>
+        ) : (
+          <button className="btn btn-active btn-ghost" onClick={messageLogin}>
+            View details
+          </button>
+        )}
+
+        <ToastContainer />
       </td>
     </tr>
   );
