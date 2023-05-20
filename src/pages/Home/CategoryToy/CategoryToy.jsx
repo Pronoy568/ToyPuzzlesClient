@@ -8,7 +8,7 @@ const CategoryToy = () => {
   const [threeDCategory, setThreeDCategory] = useState([]);
   const [woodenCategory, setWoodenCategory] = useState([]);
 
-  const url = `http://localhost:3000/toys`;
+  const url = `https://toy-puzzles-server.vercel.app/toys`;
   useEffect(() => {
     fetch(url)
       .then((response) => response.json())

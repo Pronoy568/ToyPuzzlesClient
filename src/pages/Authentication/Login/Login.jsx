@@ -6,6 +6,7 @@ import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import UseTitle from "../../share/UseTitle/UseTitle";
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
@@ -15,6 +16,8 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+
+  UseTitle("| Login");
 
   const from = location.state?.from?.pathname || "/";
 

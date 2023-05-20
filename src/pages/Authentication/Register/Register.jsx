@@ -5,6 +5,7 @@ import GoogleLogin from "../../share/GoogleLogin/GoogleLogin";
 import img from "../../../assets/mixed/register.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import UseTitle from "../../share/UseTitle/UseTitle";
 
 const Register = () => {
   const { createUser, Logout, profileUpdate } = useContext(AuthContext);
@@ -14,6 +15,7 @@ const Register = () => {
   const navigate = useNavigate();
 
   const from = "/login";
+  UseTitle("| Register");
 
   const handleSignUp = (event) => {
     event.preventDefault();

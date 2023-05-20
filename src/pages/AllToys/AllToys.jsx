@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import AllToyDataShow from "./AllToyDataShow";
+import UseTitle from "../share/UseTitle/UseTitle";
 
 const AllToys = () => {
   const [allToys, setAllToys] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [messageRightToy, setMessageRightToy] = useState("");
 
-  const url = `http://localhost:3000/toys`;
+  UseTitle("| AllToys");
+
+  const url = `https://toy-puzzles-server.vercel.app/toys`;
   useEffect(() => {
     fetch(url)
       .then((response) => response.json())

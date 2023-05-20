@@ -1,5 +1,7 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
+import UseTitle from "../share/UseTitle/UseTitle";
+import { Rating } from "@smastrom/react-rating";
 
 const SingleToyInfo = () => {
   const ToyData = useLoaderData();
@@ -15,6 +17,8 @@ const SingleToyInfo = () => {
     image,
     details,
   } = ToyData;
+  UseTitle(`| ${ToyName}`);
+
   return (
     <div className="py-10 w-10/12 mx-auto">
       <div className="pb-10">
@@ -65,8 +69,14 @@ const SingleToyInfo = () => {
             <span className="text-gray-600">{available}</span>
           </h1>
           <h1>
-            <span className="font-medium text-blue-900">Rating:</span>{" "}
-            <span className="text-gray-600">{rating}</span>
+            <span className="font-medium text-blue-900">
+              <div
+                className="tooltip tooltip-open tooltip-right"
+                data-tip={rating}
+              >
+                <Rating style={{ maxWidth: 140 }} value={rating} readOnly />
+              </div>
+            </span>
           </h1>
         </div>
       </div>

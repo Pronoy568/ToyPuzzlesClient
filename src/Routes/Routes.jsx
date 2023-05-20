@@ -54,7 +54,8 @@ const Routes = createBrowserRouter([
             <SingleToyInfo></SingleToyInfo>
           </PrivateRoute>
         ),
-        loader: ({ params }) => fetch(`http://localhost:3000/toy/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`https://toy-puzzles-server.vercel.app/toy/${params.id}`),
       },
       {
         path: "/myToys",
@@ -71,7 +72,8 @@ const Routes = createBrowserRouter([
             <UpdateToy />
           </PrivateRoute>
         ),
-        loader: ({ params }) => fetch(`http://localhost:3000/toy/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`https://toy-puzzles-server.vercel.app/toy/${params.id}`),
       },
     ],
   },

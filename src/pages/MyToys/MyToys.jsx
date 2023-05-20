@@ -2,13 +2,16 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import MyToyDataShow from "./MyToyDataShow";
 import Swal from "sweetalert2";
+import UseTitle from "../share/UseTitle/UseTitle";
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [myToys, setMyToys] = useState([]);
   const [sortOrder, setSortOrder] = useState("ascending");
 
-  const url = `http://localhost:3000/toys?email=${user?.email}`;
+  UseTitle("| MyToys");
+
+  const url = `https://toy-puzzles-server.vercel.app/toys?email=${user?.email}`;
   useEffect(() => {
     fetch(url)
       .then((response) => response.json())
@@ -48,7 +51,7 @@ const MyToys = () => {
       confirmButtonText: "YES",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/toy/${id}`, {
+        fetch(`https://toy-puzzles-server.vercel.app/toy/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

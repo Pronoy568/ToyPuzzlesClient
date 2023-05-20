@@ -1,6 +1,8 @@
 import React from "react";
+import UseTitle from "../share/UseTitle/UseTitle";
 
 const Blog = () => {
+  UseTitle("| Blog");
   return (
     <section>
       <h1 className="text-center mt-10 font-bold italic text-4xl md:text-5xl text-blue-900 underline decoration-blue-100 decoration-wavy underline-offset-8">

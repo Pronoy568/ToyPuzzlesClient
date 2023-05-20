@@ -1,11 +1,14 @@
 import React from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import UseTitle from "../share/UseTitle/UseTitle";
 
 const UpdateToy = () => {
   const toyData = useLoaderData();
   const navigate = useNavigate();
   const from = "/myToys";
+
+  UseTitle("| UpdateToy");
 
   const {
     _id,
@@ -51,7 +54,7 @@ const UpdateToy = () => {
     };
 
     // send data to the server
-    fetch(`http://localhost:3000/toy/${_id}`, {
+    fetch(`https://toy-puzzles-server.vercel.app/toy/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
