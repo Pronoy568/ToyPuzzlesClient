@@ -10,12 +10,14 @@ import SingleToyInfo from "../pages/SingleToyInfo/SingleToyInfo";
 import MyToys from "../pages/MyToys/MyToys";
 import UpdateToy from "../pages/UpdateToy/UpdateToy";
 import PrivateRoute from "./PrivateRoute";
+import Error from "../pages/share/Error/Error";
+import Blog from "../pages/Blog/Blog";
 
 const Routes = createBrowserRouter([
   {
     path: "/",
     element: <Layout></Layout>,
-    errorElement: <p>Error</p>,
+    errorElement: <Error></Error>,
     children: [
       {
         path: "/",
@@ -28,6 +30,10 @@ const Routes = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
       },
       {
         path: "/addToy",
