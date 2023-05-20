@@ -151,16 +151,16 @@ const UpdateToy = () => {
             <label className="label">
               <span className="label-text">Category</span>
             </label>
-            <label className="input-group">
-              <input
-                type="text"
-                placeholder="Category"
-                name="category"
-                defaultValue={category}
-                className="input input-bordered w-full"
-                required
-              />
-            </label>
+            <select
+              name="category"
+              className="w-full p-3 border rounded-lg"
+              required
+            >
+              <option value="">-- Select Category --</option>
+              <option value="Logic">Logic</option>
+              <option value="3D">3D</option>
+              <option value="Wooden">Wooden</option>
+            </select>
           </div>
           <div className="form-control md:w-1/2 md:ml-4">
             <label className="label">

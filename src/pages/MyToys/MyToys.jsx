@@ -101,6 +101,7 @@ const MyToys = () => {
               </th>
               <th>Category</th>
               <th>Quantity</th>
+              <th>Details Info.</th>
               <th>Update</th>
               <th>Delete</th>
             </tr>

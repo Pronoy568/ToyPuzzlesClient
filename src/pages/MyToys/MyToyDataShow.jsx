@@ -23,6 +23,11 @@ const MyToyDataShow = ({ myToy, handleDelete }) => {
       <td>{quantity}</td>
       <td>
         <button className="btn btn-active btn-ghost">
+          <Link to={`/toy/${_id}`}>View details</Link>
+        </button>
+      </td>
+      <td>
+        <button className="btn btn-active btn-ghost">
           <Link to={`/toy/update/${_id}`}>Update</Link>
         </button>
       </td>

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -7,15 +7,9 @@ import "react-toastify/dist/ReactToastify.css";
 const AllToyDataShow = ({ allToy }) => {
   const { user } = useContext(AuthContext);
   const { _id, ToyName, price, category, quantity, image } = allToy;
-  const navigate = useNavigate();
-
-  const from = "/login";
 
   const messageLogin = () => {
     toast(`you have to log in first to view details`);
-    setTimeout(() => {
-      navigate(from, { replace: true });
-    }, 3000);
   };
 
   return (
@@ -42,10 +36,9 @@ const AllToyDataShow = ({ allToy }) => {
           </button>
         ) : (
           <button className="btn btn-active btn-ghost" onClick={messageLogin}>
-            View details
+            <Link to={`/toy/${_id}`}>View details</Link>
           </button>
         )}
-
         <ToastContainer />
       </td>
     </tr>
