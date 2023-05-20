@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [myToys, setMyToys] = useState([]);
+  const [sortOrder, setSortOrder] = useState("ascending");
 
   const url = `http://localhost:3000/toys?email=${user?.email}`;
   useEffect(() => {
@@ -13,9 +14,31 @@ const MyToys = () => {
       .then((response) => response.json())
       .then((data) => {
         setMyToys(data);
+        sortToys(data, sortOrder);
       });
   }, [url]);
 
+  // Sort Order handle function
+  const handleSortOrderChange = () => {
+    const newSortOrder = sortOrder === "ascending" ? "descending" : "ascending";
+    sortToys(myToys, newSortOrder);
+    setSortOrder(newSortOrder);
+  };
+
+  // Sort Toy
+  const sortToys = (toys, order) => {
+    const sortedToys = [...toys];
+    sortedToys.sort((a, b) => {
+      if (order === "ascending") {
+        return a.price - b.price;
+      } else {
+        return b.price - a.price;
+      }
+    });
+    setMyToys(sortedToys);
+  };
+
+  // Delete function
   const handleDelete = (id) => {
     Swal.fire({
       title: "Delete",
@@ -62,7 +85,20 @@ const MyToys = () => {
           <thead>
             <tr>
               <th>ToyName</th>
-              <th>Price</th>
+              <th>
+                Price{" "}
+                <button onClick={handleSortOrderChange}>
+                  {sortOrder === "ascending" ? (
+                    <>
+                      <p className="text-green-500">▲</p>
+                    </>
+                  ) : (
+                    <>
+                      <p className="text-red-500">▼</p>
+                    </>
+                  )}
+                </button>
+              </th>
               <th>Category</th>
               <th>Quantity</th>
               <th>Update</th>

@@ -35,7 +35,7 @@ const SingleToyInfo = () => {
             alt={ToyName}
           />
         </div>
-        <div className="text-2xl ms-5 space-y-1 bg-gray-100 p-3 rounded-xl">
+        <div className="text-2xl ms-0 md:ms-5 space-y-1 bg-gray-100 p-6 rounded-xl">
           <h1>
             <span className="font-medium text-blue-900">ToyName:</span>{" "}
             <span className="text-gray-600">{ToyName}</span>
